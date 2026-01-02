@@ -80,7 +80,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   void _goToWelcome() {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (_) => const WelcomeScreen()),
+      MaterialPageRoute(builder: (_) => WelcomeScreen()),
     );
   }
 
