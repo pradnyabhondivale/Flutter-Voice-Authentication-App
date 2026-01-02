@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:untitled1/features/auth/presentation/screens/register_screen.dart';
+
+import 'login_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   @override
@@ -63,7 +66,7 @@ class WelcomeScreen extends StatelessWidget {
                 ),
                 child: ClipOval(
                   child: Image.asset(
-                    'assets/images/biolock_face_voice_neon.png',
+                    'assets/images/biolock_logo.png',
                     fit: BoxFit.cover,
                     // [generated_image:281][file:299]
                   ),
@@ -92,14 +95,6 @@ class WelcomeScreen extends StatelessWidget {
                   letterSpacing: 0.5,
                 ),
               ),
-              SizedBox(height: 8),
-              Text(
-                'Designed for secure campus attendance',
-                style: GoogleFonts.poppins(
-                  fontSize: 14,
-                  color: Colors.white.withOpacity(0.7),
-                ),
-              ),
               SizedBox(height: 60),
 
               // Action Buttons Row
@@ -119,8 +114,8 @@ class WelcomeScreen extends StatelessWidget {
                     onTap: () {},
                   ),
                   _ActionButton(
-                    icon: Icons.fingerprint,
-                    label: 'Zero\nTrust',
+                    icon: Icons.security_rounded,
+                    label: 'Secure',
                     color: Color(0xFFEC4899),
                     onTap: () {},
                   ),
@@ -133,9 +128,7 @@ class WelcomeScreen extends StatelessWidget {
                 width: 280,
                 height: 60,
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [Color(0xFF6366F1), Color(0xFF8B5CF6)],
-                  ),
+                  gradient: LinearGradient(colors: [Color(0xFF6366F1), Color(0xFF8B5CF6)]),
                   borderRadius: BorderRadius.circular(30),
                   boxShadow: [
                     BoxShadow(
@@ -148,41 +141,35 @@ class WelcomeScreen extends StatelessWidget {
                 child: Material(
                   color: Colors.transparent,
                   child: InkWell(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterScreen()));
+                    },
                     borderRadius: BorderRadius.circular(30),
-                    onTap: () {},
                     child: Center(
                       child: Text(
                         'Register with Face & Voice',
-                        style: GoogleFonts.poppins(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white,
-                        ),
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.white),
                       ),
                     ),
                   ),
                 ),
               ),
+
+
               SizedBox(height: 20),
 
               // Login Link
-              TextButton(
-                onPressed: () {},
+              // WORKING LOGIN BUTTON
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+                },
                 child: RichText(
                   text: TextSpan(
-                    style: GoogleFonts.poppins(
-                      fontSize: 16,
-                      color: Colors.white.withOpacity(0.8),
-                    ),
+                    style: GoogleFonts.poppins(fontSize: 14, color: Colors.white.withOpacity(0.8)),
                     children: [
                       TextSpan(text: 'Already registered? '),
-                      TextSpan(
-                        text: 'Login',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
+                      TextSpan(text: 'Login', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600)),
                     ],
                   ),
                 ),
